@@ -1,0 +1,154 @@
+:root {
+  /* --- Dark Theme (Default) --- */
+  --bg-primary: #040b0d;
+  --bg-secondary: #4bcfce;
+  --bg-tertiary: #040b0d;
+  --bg-grayColor: #939393;
+  --bg-light-primary: rgba(75, 207, 206, 0.06);
+  
+  --text-primary: #4bcfce;
+  --text-secondary: #FFFFFF;
+  --text-tertiary: #939393;
+
+  --border-primary: #4bcfce;
+  --border-secondary: #4bcfce;
+  --border-tertiary: #4bcfce;
+  --border-light-primary: rgba(75, 207, 206, 0.3);
+  
+
+
+  --accent-secondary: #00CCCC;
+  --text-on-accent: #E9E9EC;
+  --border-color: #333333;
+  --shadow-color: #4bcfce;
+  --danger-color: #ff3b30;
+  --danger-background: rgba(255, 59, 48, 0.2);
+  --danger-border: rgba(255, 59, 48, 0.3);
+
+  /* Message Colors */
+  --user-message-bg: var(--text-primary);
+  --user-message-text: var(--text-on-accent);
+  --llm-message-bg: var(--bg-tertiary);
+  --llm-message-text: var(--text-primary);
+  --status-message-text: var(--text-secondary);
+}
+
+[data-theme="light"] {
+  /* --- Light Theme --- */
+  --bg-primary: #FFFFFF;
+  --bg-secondary: #F0F0F0;
+  --bg-tertiary: #E5E5E5;
+  --text-primary: #111111;
+  --text-secondary: #555555;
+  --text-primary: #008B8B; /* Dark Cyan for better contrast */
+  --accent-secondary: #006666;
+  --text-on-accent: #FFFFFF;
+  --border-color: #DDDDDD;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  
+  /* Message Colors */
+  --user-message-bg: #E8F4FF; /* Light blue background */
+  --user-message-text: #000000; /* Black text for contrast */
+  --llm-message-bg: #E5F7E5; /* Light green background */
+  --llm-message-text: #000000; /* Black text for contrast */
+  --status-message-text: #000000; /* Black text for better visibility */
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+button {
+    padding: 8px 15px;
+    color: var(--text-primary);
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.2s;
+    font-weight: 500;
+}
+
+button:hover {
+    background-color: var(--bg-secondary);
+    color: var(--text-secondary);
+}
+
+/* Fallback icon system */
+.icon-fallback {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 1em;
+    min-height: 1em;
+}
+
+.icon-fallback svg {
+    width: 1em;
+    height: 1em;
+    fill: currentColor;
+}
+
+
+
+.user-message, .llm-message {
+    padding: 12px;
+    border-radius: 12px;
+    margin-bottom: 12px;
+    max-width: 85%;
+    word-wrap: break-word;
+    box-shadow: 0px 0px 6px -2px var(--shadow-color);
+    position: relative;
+    line-height: 1.4;
+}
+
+.user-message {
+    background: var(--bg-light-primary);
+    color: var(--text-primary);
+    align-self: flex-end;
+    margin-left: auto;
+    border-bottom-right-radius: 4px;
+    font-weight: 500;
+}
+
+.llm-message {
+    background: var(--llm-message-bg);
+    color: var(--text-primary);
+    align-self: flex-start;
+    border-bottom-left-radius: 4px;
+    font-weight: 400;
+}
+
+/* Message prefix styling */
+.user-message::before, .llm-message::before {
+    content: attr(data-sender);
+    display: block;
+    font-size: 0.85em;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: var(--text-tertiary);
+}
+
+/* Copy button for LLM messages */
+.copy-btn {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background-color: var(--bg-tertiary);
+    border: none;
+    color: var(--text-primary);
+    cursor: pointer;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 11px;
+    transition: all 0.2s ease;
+}
+
+.copy-btn:hover {
+    background-color: rgba(0, 0, 0, 0.4);
+    color: var(--text-primary);
+}

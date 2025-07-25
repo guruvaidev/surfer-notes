@@ -1,0 +1,13 @@
+.saved-message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--text-primary);
+    color: var(--text-on-accent);
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px var(--shadow-color);
+    font-weight: bold;
+    z-index: 9999;
+}

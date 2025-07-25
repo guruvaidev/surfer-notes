@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kamali Assistant</title>
+    <link rel="stylesheet" href="common.css">
+    <link rel="stylesheet" href="popup.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-header">
+            <span>SurferNotes</span>
+        </div>
+        <div class="popup-body">
+            <div class="action-buttons">
+                <div class="top-part">
+                    <button id="sync-btn" class="action-button" title="Sync with browser history">
+                        <i class="fas fa-sync-alt"></i>
+                        <span class="label">Sync</span>
+                    </button>
+                    <button id="summarize-btn" class="action-button" title="Summarize current page">
+                        <i class="fas fa-file-alt"></i>
+                        <span class="label">Summarize</span>
+                    </button>
+                    <button id="toggle-sidebar-btn" class="action-button" title="Toggle sidebar">
+                        <i class="fas fa-columns"></i>
+                        <span class="label">Toggle Sidebar</span>
+                    </button>
+                    <button id="popout-btn" class="action-button primary" title="Pop out chat window">
+                        <i class="fas fa-external-link-alt"></i>
+                        <span class="label">Popout</span>
+                    </button>
+                    <button id="settings-btn" class="action-button" title="Settings" style="font-size: 12px; padding: 4px 8px;">
+                        <i class="fas fa-cog"></i>
+                        <span class="label">Settings</span>
+                    </button>
+                </div>
+                <div class="bottom-part">
+                    <button id="clear-chat-btn" class="action-button" title="Clear chat" style="font-size: 12px; padding: 4px 8px;">
+                        <i class="fas fa-trash"></i>
+                        <span class="label">Delete Chat</span>
+                    </button>
+                </div>
+            </div>
+            <div class="pip-controls">
+                <div class="status-message" id="status-message">Status: Idle</div>
+                
+                <div class="chat-window" id="chat-window"></div>
+                
+                <div class="chat-input-container">
+                    <input type="text" id="chat-input" placeholder="Type a message...">
+                    <button id="send-btn" class="action-button primary"><i class="fas fa-paper-plane"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="popup.js"></script>
+</body>
+</html>
