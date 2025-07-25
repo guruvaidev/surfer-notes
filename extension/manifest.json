@@ -1,0 +1,65 @@
+{
+  "manifest_version": 3,
+  "name": "Kamali Assistant",
+  "version": "1.3.2",
+  "description": "Browser Assistant with sidebar, chat and PiP functionality",
+  "host_permissions": [
+    "https://6287-50-252-202-166.ngrok-free.app/*",
+    "http://127.0.0.1:8000/*",
+    "http://127.0.0.1:8080/*",
+    "http://127.0.0.1:5000/*"
+  ],
+  "permissions": [
+    "history",
+    "storage",
+    "windows",
+    "system.display",
+    "tabs",
+    "activeTab",
+    "scripting",
+    "clipboardWrite",
+    "notifications"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["contentScript.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "sidebar.html",
+        "common.css",
+        "sidebar.css",
+        "floating_panel.css",
+        "popup.css",
+        "settings.css",
+        "file_select.css",
+        "sidebar.js",
+        "floating_panel.html",
+        "floating_panel_pip.html",
+        "floating_panel_pip.css",
+        "icons/*"
+      ],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}

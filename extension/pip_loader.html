@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Loading...</title>
+    <style>
+        body { 
+            background-color: #000000; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            height: 100vh; 
+            font-family: sans-serif; 
+            color: #00FFFF; 
+        }
+        .loader {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="loader">
+        Loading Kamali Assistant...
+    </div>
+    <script>
+        // This file is used to load the PiP window
+        // It signals back to the opener that the PiP window is ready
+        
+        if (window.opener && !window.opener.closed) {
+            // Try to signal to the opener
+            try {
+                window.opener.postMessage('pip_ready', chrome.runtime.getURL('*')); 
+                console.log("PiP loader: Ready signal sent");
+            } catch (e) {
+                console.error("PiP loader: Error sending signal:", e);
+            }
+            // The requestWindow promise will resolve anyway
+        }
+    </script>
+</body>
+</html> 

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SurferNotes</title>
+  <link rel="stylesheet" href="common.css">
+  <link rel="stylesheet" href="sidebar.css">
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* Ensure consistent icon rendering across the extension */
+    .icon-fallback {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 1em;
+      min-height: 1em;
+    }
+    
+    /* Fallback SVG for common icons if Font Awesome fails */
+    .chat-icon-fallback svg {
+      width: 1em;
+      height: 1em;
+      fill: currentColor;
+    }
+  </style>
+</head>
+<body>
+  <div class="kamali-sidebar-container">
+    <!-- Header Group - All fixed elements -->
+    <div class="header-group">
+      <!-- Header -->
+      <div class="sidebar-header">
+        <h1 class="sidebar-title">SurferNotes</h1>
+        <div class="sidebar-controls">
+          <button class="sidebar-control-btn" id="sidebar-minimize-btn" title="Minimize">
+            <i class="fas fa-minus"></i>
+          </button>
+          <button class="sidebar-control-btn" id="sidebar-close-btn" title="Close">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Action Buttons with more compact layout -->
+      
+
+      <!-- Tab Navigation -->
+      <div class="tabs-container">
+        <button id="chat-tab-btn" class="tab-button active-tab">
+          <i class="fas fa-comment"></i>
+          <span class="icon-fallback chat-icon-fallback">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="display:none;">
+              <path d="M256 32C114.6 32 0 125.1 0 240c0 49.6 21.4 95 57 130.7C44.5 421.1 2.7 466 2.2 466.5c-2.2 2.3-2.8 5.7-1.5 8.7S4.8 480 8 480c66.3 0 116-31.8 140.6-51.4 32.7 12.3 69 19.4 107.4 19.4 141.4 0 256-93.1 256-208S397.4 32 256 32z"/>
+            </svg>
+          </span> 
+          Chat
+        </button>
+        <button id="notes-tab-btn" class="tab-button">
+          <i class="fas fa-sticky-note"></i> Notes
+        </button>
+      </div>
+
+      <!-- Status Message -->
+      <div class="status-message" id="status-message">Connecting to server...</div>
+      <button id="clear-chat-btn" class="action-button clear-button">
+        <i class="fas fa-trash"></i>
+      </button>
+    </div>
+
+    <!-- Content Section -->
+    <div class="sidebar-section">
+      <!-- Chat Section -->
+      <div class="chat-window" id="chat-window">
+        <!-- Chat messages will be inserted here -->
+      </div>
+
+      <!-- Notes Section -->
+      <div class="notes-window" id="notes-window" style="display: none;">
+        <div class="notes-header">
+          <h2 class="section-title">My Notes</h2>
+          <button id="add-note-btn" class="action-button" title="Add new note">
+            <i class="fas fa-plus"></i> Add Note
+          </button>
+        </div>
+        <div id="notes-list">
+          <!-- Notes will be inserted here by JS -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Chat Input (only shown in chat tab) -->
+    <div class="chat-input-container">
+      <input type="text" id="chat-input" placeholder="Type a message...">
+      <button id="send-btn" class="kamali-btn"><i class="fas fa-paper-plane"></i></button>
+    </div>
+
+    <div class="action-buttons">
+            <button id="sync-btn" class="action-button">
+              <i class="fas fa-sync-alt"></i>
+            </button>
+            <button id="summarize-btn" class="action-button">
+              <i class="fas fa-file-alt"></i>
+            </button>
+            <button id="popout-btn" class="action-button">
+              <i class="fas fa-external-link-alt"></i>
+            </button>
+            <button id="theme-toggle-btn" class="action-button" title="Toggle Theme">
+              <i class="fas fa-moon-outline"></i>
+            </button>
+            <button id="settings-btn" class="action-button" title="Settings">
+              <i class="fas fa-cog"></i>
+            </button>
+          </div>
+      </div>
+
+    <!-- Footer with improved layout -->
+    <div class="sidebar-footer">
+      <div class="copyright">
+        Kamali Inc. © 2025 - All rights reserved
+      </div>
+    </div>
+  </div>
+
+  <script src="sidebar.js"></script>
+</body>
+</html>
